@@ -33,7 +33,7 @@ $(call inherit-product, vendor/potato/config/common_full_phone.mk)
 
 # Device identifier. This must come after all inclusions
 PRODUCT_DEVICE := daisy
-PRODUCT_NAME := potato_sakura
+PRODUCT_NAME := potato_daisy
 PRODUCT_BRAND := Xiaomi
 PRODUCT_MODEL := Mi A2 Lite
 PRODUCT_MANUFACTURER := Xiaomi
