@@ -17,27 +17,25 @@
 # Inherit from those products. Most specific first.
 $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
-$(call inherit-product-if-exists, vendor/xiaomi/MiuiCamera/sakura.mk)
 
 # Installs gsi keys into ramdisk, to boot a GSI with verified boot.
 $(call inherit-product, $(SRC_TARGET_DIR)/product/gsi_keys.mk)
 
-# Inherit from sakura device
-$(call inherit-product, device/xiaomi/sakura/device.mk)
+# Inherit from daisy device
+$(call inherit-product, device/xiaomi/daisy/device.mk)
 
 # Enable updating of APEXes
 $(call inherit-product, $(SRC_TARGET_DIR)/product/updatable_apex.mk)
 
-# Inherit some common AOSP stuff.
+# Inherit some common potato stuff.
 TARGET_BOOT_ANIMATION_RES := 1080
-TARGET_GAPPS_ARCH := arm64
-$(call inherit-product, vendor/aosp/config/common_full_phone.mk)
+$(call inherit-product, vendor/potato/config/common_full_phone.mk)
 
 # Device identifier. This must come after all inclusions
-PRODUCT_DEVICE := sakura
-PRODUCT_NAME := aosp_sakura
+PRODUCT_DEVICE := daisy
+PRODUCT_NAME := potato_sakura
 PRODUCT_BRAND := Xiaomi
-PRODUCT_MODEL := Redmi 6 Pro
+PRODUCT_MODEL := Mi A2 Lite
 PRODUCT_MANUFACTURER := Xiaomi
 TARGET_VENDOR := Xiaomi
 BOARD_VENDOR := Xiaomi
@@ -45,7 +43,10 @@ BOARD_VENDOR := Xiaomi
 PRODUCT_GMS_CLIENTID_BASE := android-xiaomi
 
 PRODUCT_BUILD_PROP_OVERRIDES += \
-    PRIVATE_BUILD_DESC="sakura_india-user 9 PKQ1.180917.001 9.5.30 release-keys"
+    PRIVATE_BUILD_DESC="daisy-user 9 PKQ1.180917.001 V10.0.1.0.PDLMIFJ release-keys"
 
-# Set BUILD_FINGERPRINT variable to be picked up by both system and vendor build.prop
-BUILD_FINGERPRINT := "xiaomi/sakura_india/sakura_india:9/PKQ1.180917.001/9.5.30:user/release-keys"
+# FINGERPRINT
+BUILD_FINGERPRINT := "xiaomi/tissot/tissot_sprout:9/PKQ1.180917.001/V10.0.13.0.PDHMIXM:user/release-keys"
+
+PRODUCT_SYSTEM_DEFAULT_PROPERTIES += \
+    ro.build.fingerprint=$(BUILD_FINGERPRINT)
