@@ -27,6 +27,10 @@ $(call inherit-product, device/xiaomi/daisy/device.mk)
 # Enable updating of APEXes
 $(call inherit-product, $(SRC_TARGET_DIR)/product/updatable_apex.mk)
 
+#APNS
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/apns-conf.xml:system/etc/apns-conf.xml
+
 # Inherit some common potato stuff.
 TARGET_BOOT_ANIMATION_RES := 1080
 $(call inherit-product, vendor/potato/config/common_full_phone.mk)

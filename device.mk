@@ -168,6 +168,10 @@ PRODUCT_PACKAGES += \
     android.hardware.ir@1.0-impl \
     android.hardware.ir@1.0-service
 
+# Permissions
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/privapp-permissions-gcam.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/privapp-permissions-gcam.xml \
+
 # Configstore
 PRODUCT_PACKAGES += \
     android.hardware.configstore@1.0-service
@@ -190,10 +194,6 @@ PRODUCT_PACKAGES += \
     libqdMetaData.system \
     libgenlock \
     libtinyxml
-
-# Device-specific settings
-PRODUCT_PACKAGES += \
-    XiaomiParts
 
 # DRM
 PRODUCT_PACKAGES += \
@@ -460,13 +460,10 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/wifi/WCNSS_cfg.dat:system/etc/firmware/wlan/prima/WCNSS_cfg.dat \
     $(LOCAL_PATH)/wifi/WCNSS_qcom_cfg.ini:$(TARGET_COPY_OUT_VENDOR)/etc/wifi/WCNSS_qcom_cfg.ini
 
-# Wallpapers
-PRODUCT_PACKAGES += \
-    PixelLiveWallpaperPrebuilt
-
 # Wi-Fi Display
 PRODUCT_BOOT_JARS += \
     WfdCommon
 
-# Include AmbientSense if it's available
--include vendor/ambientmusic/AmbientMusic.mk
+# Verity
+PRODUCT_SYSTEM_VERITY_PARTITION := /dev/block/platform/soc/7824900.sdhci/by-name/system
+$(call inherit-product, build/target/product/verity.mk)
