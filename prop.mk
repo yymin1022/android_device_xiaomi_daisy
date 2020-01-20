@@ -8,6 +8,8 @@ dalvik.vm.image-dex2oat-filter=speed
 
 # Audio
 PRODUCT_PROPERTY_OVERRIDES += \
+ro.config.media_vol_steps=25 \
+ro.config.vc_call_vol_steps=25 \
 audio_para_version=QL1715-Audiopara-V03-20180302 \
 acdb_id_para_version=QL1715-Audiopara-V03-20180302 \
 audio.chk.cal.us=0 \
