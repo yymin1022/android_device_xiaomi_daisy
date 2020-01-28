@@ -10,5 +10,10 @@
   {
     "repository": "PotatoDevices/vendor_xiaomi_daisy",
     "target_path": "vendor/xiaomi/daisy"
+  },
+  {
+    "repository": "nysascape/hardware_google_pixel",
+    "target_path": "hardware/google/pixel",
+    "branch": "daisy"
   }
 ]
