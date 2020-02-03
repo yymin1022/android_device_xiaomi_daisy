@@ -370,6 +370,10 @@ PRODUCT_PACKAGES += \
     move_wifi_data.sh \
     ueventd.qcom.rc
 
+# init.d support
+PRODUCT_PACKAGES += \
+    sysinit
+
 # RenderScript HAL
 PRODUCT_PACKAGES += \
     android.hardware.renderscript@1.0-impl
