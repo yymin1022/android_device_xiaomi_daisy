@@ -19,8 +19,7 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/product_launched_with_o_mr1.mk
 
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \
-   $(LOCAL_PATH) \
-    hardware/google/pixel
+   $(LOCAL_PATH)
 
 #Soong
 PRODUCT_BOARD_PLATFORM := msm8996
