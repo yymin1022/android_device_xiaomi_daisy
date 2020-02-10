@@ -220,6 +220,10 @@ PRODUCT_BOOT_JARS += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/permissions/com.qcom.fmradio.xml:system/etc/permissions/com.qcom.fmradio.xml
 
+# Doze
+PRODUCT_PACKAGES += \
+    XiaomiDoze
+
 # GPS
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/gps/flp.conf:$(TARGET_COPY_OUT_VENDOR)/etc/flp.conf \
