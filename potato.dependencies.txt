@@ -10,10 +10,5 @@
   {
     "repository": "PotatoDevices/vendor_xiaomi_daisy",
     "target_path": "vendor/xiaomi/daisy"
-  },
-[
- {
-   "repository": "android_packages_resources_devicesettings",
-   "target_path": "packages/resources/devicesettings"
- }
+  }
 ]
