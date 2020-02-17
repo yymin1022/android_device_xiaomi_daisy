@@ -16,3 +16,4 @@ allow mm-qcamerad debugfs:dir { read open };
 allow mm-qcamerad diag_device:chr_file { read write };
 allow mm-qcamerad persist_camera_prop:property_service set;
 allow mm-qcamerad diag_device:chr_file { open };
+allow mm-qcamerad diag_device:chr_file { ioctl };
