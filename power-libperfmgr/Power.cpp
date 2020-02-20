@@ -32,7 +32,7 @@
 #include "Power.h"
 #include "display-helper.h"
 
-#define TAP_TO_WAKE_NODE "/proc/tp_wakeup_gesture"
+#define TAP_TO_WAKE_NODE "/proc/touchpanel/wakeup_gesture"
 
 namespace android {
 namespace hardware {
