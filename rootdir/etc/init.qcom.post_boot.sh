@@ -225,33 +225,12 @@ target=`getprop ro.board.platform`
 function configure_zram_parameters() {
     MemTotalStr=`cat /proc/meminfo | grep MemTotal`
     MemTotal=${MemTotalStr:16:8}
-
-    low_ram=`getprop ro.config.low_ram`
-
-    # Zram disk - 75% for Go devices.
-    # For 512MB Go device, size = 384MB, set same for Non-Go.
-    # For 1GB Go device, size = 768MB, set same for Non-Go.
-    # For >=2GB Non-Go devices, size = 50% of RAM size. Limit the size to 4GB.
-    # And enable lz4 zram compression for Go targets.
-
-    RamSizeGB=`echo "($MemTotal / 1048576 ) + 1" | bc`
-    zRamSizeBytes=`echo "$RamSizeGB * 1024 * 1024 * 1024 / 2" | bc`
-    if [ $zRamSizeBytes -gt 4294967296 ]; then
-        zRamSizeBytes=4294967296
-    fi
-
-    if [ "$low_ram" == "true" ]; then
-        echo lz4 > /sys/block/zram0/comp_algorithm
-    fi
-
+    # Set Zram disk size to 512MB for 3GB and below targets, 1GB for above 3GB targets.
     if [ -f /sys/block/zram0/disksize ]; then
-        echo 1 > /sys/block/zram0/use_dedup
-        if [ $MemTotal -le 524288 ]; then
-            echo 402653184 > /sys/block/zram0/disksize
-        elif [ $MemTotal -le 1048576 ]; then
-            echo 805306368 > /sys/block/zram0/disksize
+        if [ $MemTotal -gt 3145728 ]; then
+            echo 2147483648 > /sys/block/zram0/disksize
         else
-            echo $zRamSizeBytes > /sys/block/zram0/disksize
+            echo 2147483648 > /sys/block/zram0/disksize
         fi
         mkswap /dev/block/zram0
         swapon /dev/block/zram0 -p 32758
