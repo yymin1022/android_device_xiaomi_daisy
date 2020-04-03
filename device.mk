@@ -14,6 +14,7 @@
 # limitations under the License.
 #
 
+
 $(call inherit-product, vendor/xiaomi/daisy/daisy-vendor.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/product_launched_with_o_mr1.mk)
 
