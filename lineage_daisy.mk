@@ -27,9 +27,9 @@ $(call inherit-product, device/xiaomi/daisy/device.mk)
 # Enable updating of APEXes
 $(call inherit-product, $(SRC_TARGET_DIR)/product/updatable_apex.mk)
 
-# Inherit some common potato stuff.
+# Inherit some common lineage stuff.
 TARGET_BOOT_ANIMATION_RES := 1080
-$(call inherit-product, vendor/potato/config/common_full_phone.mk)
+$(call inherit-product, vvendor/lineage/config/common_full_phone.mk)
 
 #APNS
 PRODUCT_COPY_FILES += \
@@ -37,7 +37,7 @@ PRODUCT_COPY_FILES += \
 
 # Device identifier. This must come after all inclusions
 PRODUCT_DEVICE := daisy
-PRODUCT_NAME := potato_daisy
+PRODUCT_NAME := lineage_daisy
 PRODUCT_BRAND := Xiaomi
 PRODUCT_MODEL := Mi A2 Lite
 PRODUCT_MANUFACTURER := Xiaomi
