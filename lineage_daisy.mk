@@ -29,7 +29,7 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/updatable_apex.mk)
 
 # Inherit some common lineage stuff.
 TARGET_BOOT_ANIMATION_RES := 1080
-$(call inherit-product, vvendor/lineage/config/common_full_phone.mk)
+$(call inherit-product, vendor/lineage/config/common_full_phone.mk)
 
 #APNS
 PRODUCT_COPY_FILES += \
