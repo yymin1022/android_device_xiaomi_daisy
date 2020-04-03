@@ -20,4 +20,3 @@
 ## Device Picture
  
   ![Xiaomi Mi A2 Lite](https://i01.appmifile.com/webfile/globalimg/products/pc/D1S/black_phone.png "Xiaomi Mi A2 Lite in black")
-

@@ -95,8 +95,11 @@ persist.camera.HAL3.enabled=1 \
 vendor.camera.lowpower.record.enable=1 \
 vendor.camera.aux.packagelist=org.codeaurora.snapcam,com.android.camera,com.huaqin.factory,org.lineageos.snap \
 vendor.camera.aux.packagelist2=com.android.systemui,com.huaqin.cameraautotest,com.huaqin.runtime \
-vendor.camera.hal1.packagelist=com.skype.raider,com.google.android.talk,com.whatsapp,com.intsig.camscanner \
-vendor.camera.aux.packagelist=org.codeaurora.snapcam,com.android.camera,com.huaqin.factory,com.mi.AutoTest
+vendor.camera.hal1.packagelist=com.skype.raider,com.google.android.talk
+
+# HAL3 for Q (?)
+PRODUCT_PROPERTY_OVERRIDES += \
+persist.vendor.camera.HAL3.enabled=1 \
 
 # Cne
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -146,6 +149,10 @@ vendor.display.enable_default_color_mode=1 \
 vendor.display.disable_skip_validate=1 \
 vendor.gralloc.enable_fb_ubwc=1 \
 persist.vendor.max.brightness=475
+
+# Display cutout
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.potato.has_cutout=true
 
 # DPM
 PRODUCT_PROPERTY_OVERRIDES += \
