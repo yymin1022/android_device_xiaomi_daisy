@@ -40,6 +40,9 @@ on fs
     mkdir /mnt/vendor/persist/data 0700 system system
     mkdir /mnt/vendor/persist/bms 0700 root system
     restorecon_recursive /mnt/vendor/persist
+	
+    chmod 0664 /sys/class/thermal/thermal_message/sconfig
+    chown system system /sys/class/thermal/thermal_message/sconfig
 
 on init
     write /dev/stune/foreground/schedtune.sched_boost_no_override 1
@@ -71,6 +74,8 @@ on post-fs-data
     mkdir /persist/qti_fp 0700 system system
     mkdir /data/misc/seemp 0700 system system
     mkdir /data/misc/audio_pp 0771 media audio
+    mkdir /data/vendor/thermal 0771 root system
+    mkdir /data/vendor/thermal/config 0771 root system
 
 #Create folder for mm-qcamera-daemon
 mkdir /data/vendor/camera 0770 camera camera
@@ -218,21 +223,15 @@ on boot
     setprop vendor.usb.rmnet.inst.name "rmnet"
     setprop vendor.usb.dpl.inst.name "dpl"
 
-# Power HAL
-    mount none /system/lib/hw/power.qcom.so /vendor/lib/hw/power.qcom.so bind
-    mount none /system/lib64/hw/power.qcom.so /vendor/lib64/hw/power.qcom.so bind
-
 on boot
     # DT2W Node
     chown system system /proc/touchpanel/wakeup_gesture
     chmod 0660 /proc/touchpanel/wakeup_gesture
 
-# Camera Blobs
-    mount none /system/lib/android.frameworks.sensorservice@1.0-v27.so /vendor/lib/android.frameworks.sensorservice@1.0-v27.so bind
-    mount none /system/lib/libvidhance_gyro.so /vendor/lib/libvidhance_gyro.so bind
-    mount none /system/lib/hw/camera.msm8953.so /vendor/lib/hw/camera.msm8953.so bind
-    mount none /system/lib64/android.frameworks.sensorservice@1.0-v27.so /vendor/lib64/android.frameworks.sensorservice@1.0-v27.so bind
-
+# HAL3
+on boot
+    setprop persist.vendor.camera.HAL3.enabled 1
+	
 service ppd /vendor/bin/mm-pp-dpps
     class late_start
     user system

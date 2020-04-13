@@ -91,15 +91,11 @@ persist.camera.isp.clock.optmz=0 \
 persist.camera.stats.test=5 \
 persist.vendor.qti.telephony.vt_cam_interface=1 \
 vidc.enc.dcvs.extra-buff-count=2 \
-persist.camera.HAL3.enabled=1 \
 vendor.camera.lowpower.record.enable=1 \
 vendor.camera.aux.packagelist=org.codeaurora.snapcam,com.android.camera,com.huaqin.factory,org.lineageos.snap \
 vendor.camera.aux.packagelist2=com.android.systemui,com.huaqin.cameraautotest,com.huaqin.runtime \
-vendor.camera.hal1.packagelist=com.skype.raider,com.google.android.talk
-
-# HAL3 for Q (?)
-PRODUCT_PROPERTY_OVERRIDES += \
-persist.vendor.camera.HAL3.enabled=1 \
+camera.hal1.packagelist=com.skype.raider \
+vendor.camera.hal1.packagelist=com.google.android.talk
 
 # Cne
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -112,6 +108,10 @@ persist.debug.coresight.config=stm-events
 # Console
 PRODUCT_PROPERTY_OVERRIDES += \
 persist.console.silent.config=1
+
+# Display cutout
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.potato.has_cutout=true
 
 # Cpu in core control
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -149,10 +149,6 @@ vendor.display.enable_default_color_mode=1 \
 vendor.display.disable_skip_validate=1 \
 vendor.gralloc.enable_fb_ubwc=1 \
 persist.vendor.max.brightness=475
-
-# Display cutout
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.potato.has_cutout=true
 
 # DPM
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -304,6 +300,10 @@ ro.surface_flinger.protected_contents=true \
 ro.surface_flinger.vsync_event_phase_offset_ns=2000000 \
 ro.surface_flinger.vsync_sf_event_phase_offset_ns=6000000 \
 ro.surface_flinger.use_color_management=true
+
+# Thermal configs path
+PRODUCT_PROPERTY_OVERRIDES += \
+sys.thermal.data.path=/data/vendor/thermal/
 
 # Time Services
 PRODUCT_PROPERTY_OVERRIDES += \
