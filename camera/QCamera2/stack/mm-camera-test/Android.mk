@@ -5,9 +5,6 @@ LOCAL_PATH:=$(call my-dir)
 include $(LOCAL_PATH)/../../../common.mk
 include $(CLEAR_VARS)
 
-LOCAL_HEADER_LIBRARIES := libutils_headers
-LOCAL_HEADER_LIBRARIES += media_plugin_headers
-
 LOCAL_CFLAGS:= \
         -DAMSS_VERSION=$(AMSS_VERSION) \
         $(mmcamera_debug_defines) \
@@ -39,6 +36,7 @@ LOCAL_SRC_FILES:= \
 
 LOCAL_C_INCLUDES:=$(LOCAL_PATH)/inc
 LOCAL_C_INCLUDES+= \
+        frameworks/native/include/media/openmax \
         $(LOCAL_PATH)/../common \
         $(LOCAL_PATH)/../mm-camera-interface/inc \
         $(LOCAL_PATH)/../../../mm-image-codec/qexif \
@@ -102,9 +100,6 @@ include $(BUILD_EXECUTABLE)
 # Build tuning library
 include $(CLEAR_VARS)
 
-LOCAL_HEADER_LIBRARIES := libutils_headers
-LOCAL_HEADER_LIBRARIES += media_plugin_headers
-
 LOCAL_CFLAGS:= \
         -DAMSS_VERSION=$(AMSS_VERSION) \
         $(mmcamera_debug_defines) \
@@ -136,6 +131,7 @@ LOCAL_SRC_FILES:= \
 
 LOCAL_C_INCLUDES:=$(LOCAL_PATH)/inc
 LOCAL_C_INCLUDES+= \
+        frameworks/native/include/media/openmax \
         $(LOCAL_PATH)/../common \
         $(LOCAL_PATH)/../mm-camera-interface/inc \
         $(LOCAL_PATH)/../../../mm-image-codec/qexif \

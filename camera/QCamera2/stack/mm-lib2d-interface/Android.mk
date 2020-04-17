@@ -20,7 +20,6 @@ LOCAL_C_INCLUDES += \
     $(LOCAL_PATH)/../common \
     $(LOCAL_PATH)/../mm-camera-interface/inc \
 
-LOCAL_HEADER_LIBRARIES := libutils_headers
 ifeq ($(strip $(TARGET_USES_ION)),true)
     LOCAL_CFLAGS += -DUSE_ION
 endif

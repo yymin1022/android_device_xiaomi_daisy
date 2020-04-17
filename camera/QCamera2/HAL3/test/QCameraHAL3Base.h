@@ -35,11 +35,11 @@
 #include <sys/stat.h>
 #include <ctype.h>
 #include <list>
-#include "CameraMetadata.h"
+#include <camera/CameraMetadata.h>
 #include <linux/msm_ion.h>
 #include <errno.h>
 #include <fcntl.h>
-//#include "window.h"
+#include <system/window.h>
 #include <stdio.h>
 #include <pthread.h>
 #include <poll.h>
@@ -65,11 +65,7 @@ extern "C" {
 #define RAWSNAPSHOT_CAPTURE_WIDTH 5344
 #define RAWSNAPSHOT_CAPTURE_HEIGHT 4016
 
-using namespace android;
-
 namespace qcamera {
-
-using ::android::hardware::camera::common::V1_0::helper::CameraMetadata;
 
 typedef enum {
     HAL3_CAM_OK,

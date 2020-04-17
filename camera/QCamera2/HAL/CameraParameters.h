@@ -19,7 +19,6 @@
 
 #include <utils/KeyedVector.h>
 #include <utils/String8.h>
-#include <unistd.h>
 
 namespace android {
 
