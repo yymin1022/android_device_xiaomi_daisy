@@ -40,7 +40,7 @@ LOCAL_COPY_HEADERS += ../common/cam_types.h
 LOCAL_C_INCLUDES := \
     $(LOCAL_PATH)/inc \
     $(LOCAL_PATH)/../common \
-    hardware/qcom/media/msm8996/mm-core/inc/OMX_QCOMExtns.h \
+    hardware/qcom/media/msm8996/mm-core/inc \
     hardware/libhardware/include/hardware \
     system/media/camera/include \
 
