@@ -91,6 +91,7 @@ typedef struct {
        backend */
     uint32_t related_sensor_session_id;
     uint8_t is_frame_sync_enabled;
+    volatile char xiaomi_reserved[12];
 }cam_sync_related_sensors_event_info_t;
 
 /* Related camera sensor specific calibration data */
@@ -164,6 +165,7 @@ typedef struct {
     uint16_t   ref_bayer_color_temperature;
     /* Reserved for future use */
     float      reserved[RELCAM_CALIB_RESERVED_MAX];
+    volatile char xiaomi_reserved[2052];
 } cam_related_system_calibration_data_t;
 
 typedef struct {
@@ -269,6 +271,8 @@ typedef struct{
     float focal_length;                                     /* focal length */
     float hor_view_angle;                                   /* horizontal view angle */
     float ver_view_angle;                                   /* vertical view angle */
+
+    volatile char         xiaomi_reserved1[4];
 
     size_t preview_sizes_tbl_cnt;                           /* preview sizes table size */
     cam_dimension_t preview_sizes_tbl[MAX_SIZES_CNT];       /* preiew sizes table */
@@ -818,6 +822,7 @@ typedef struct {
     INCLUDE(CAM_INTF_META_CHROMATIX_LITE_ASD,           cam_chromatix_lite_asd_stats_t, 1);
     INCLUDE(CAM_INTF_BUF_DIVERT_INFO,                   cam_buf_divert_info_t,          1);
 
+    INCLUDE(XIAOMI_02,                                  uint16_t,                    2);
     /* Specific to HAL3 */
     INCLUDE(CAM_INTF_META_FRAME_NUMBER_VALID,           int32_t,                     1);
     INCLUDE(CAM_INTF_META_URGENT_FRAME_NUMBER_VALID,    int32_t,                     1);
@@ -906,6 +911,7 @@ typedef struct {
 
     /* dual camera specific params */
     INCLUDE(CAM_INTF_PARM_RELATED_SENSORS_CALIBRATION,  cam_related_system_calibration_data_t, 1);
+    INCLUDE(XIAOMI_01,                                  uint32_t,                    8);
     INCLUDE(CAM_INTF_META_AF_FOCAL_LENGTH_RATIO,        cam_focal_length_ratio_t, 1);
     INCLUDE(CAM_INTF_META_SNAP_CROP_INFO_SENSOR,        cam_stream_crop_info_t,   1);
     INCLUDE(CAM_INTF_META_SNAP_CROP_INFO_CAMIF,         cam_stream_crop_info_t,   1);
@@ -1026,6 +1032,8 @@ typedef struct {
     INCLUDE(CAM_INTF_PARM_JPEG_SCALE_DIMENSION,         cam_dimension_t,             1);
     INCLUDE(CAM_INTF_META_FOCUS_DEPTH_INFO,             uint8_t,                     1);
     INCLUDE(CAM_INTF_PARM_HAL_BRACKETING_HDR,           cam_hdr_param_t,             1);
+    INCLUDE(XIAOMI_03,                                  uint32_t,                    1);
+    INCLUDE(XIAOMI_04,                                  uint32_t,                    1);
 } metadata_data_t;
 
 /* Update clear_metadata_buffer() function when a new is_xxx_valid is added to
