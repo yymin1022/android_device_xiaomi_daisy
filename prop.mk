@@ -314,6 +314,9 @@ persist.delta_time.enable=true
 PRODUCT_PROPERTY_OVERRIDES += \
 net.tcp.2g_init_rwnd=10
 
+# Updater
+PRODUCT_PROPERTY_OVERRIDES += lineage.updater.uri=https://otalos.hukad.xyz/api/v1/{device}/{type}/{incr}
+
 # UI
 PRODUCT_PROPERTY_OVERRIDES += \
 sys.use_fifo_ui=0
