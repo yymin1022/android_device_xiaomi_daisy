@@ -315,7 +315,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 net.tcp.2g_init_rwnd=10
 
 # Updater
-PRODUCT_PROPERTY_OVERRIDES += lineage.updater.uri=https://otalos.hukad.xyz/api/v1/{device}/{type}/{incr}
+PRODUCT_PROPERTY_OVERRIDES += lineage.updater.uri=http://otalos.hukad.xyz/api/v1/{device}/{type}/{incr}
 
 # UI
 PRODUCT_PROPERTY_OVERRIDES += \
